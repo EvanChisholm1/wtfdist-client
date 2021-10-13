@@ -15,7 +15,7 @@ const SearchBox: FC<Props> = ({ onSearch }) => {
   return (
     <form
       onSubmit={e => e.preventDefault()}
-      className="flex place-items-center rounded-full focus-within:ring-2"
+      className="flex place-items-center rounded-full focus-within:ring-2 shadow"
     >
       <input
         type="text"
