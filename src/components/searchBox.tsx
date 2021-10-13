@@ -23,9 +23,10 @@ const SearchBox: FC<Props> = ({ onSearch }) => {
         id="search"
         value={query}
         onChange={onChange}
-        className="h-16 outline-none rounded-l-full w-[900px] border-none focus:ring-0 px-6 placeholder-opacity-60
+        className="h-16 outline-none rounded-l-full md:w-[500px] lg:w-[700px] xl:w-[900px] border-none focus:ring-0 px-6 placeholder-opacity-60
          placeholder-gray-500 text-lg"
         placeholder="Search Your Stuff"
+        autoFocus
       />
       <button
         type="submit"
