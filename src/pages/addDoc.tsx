@@ -1,4 +1,25 @@
+import { FormEvent, useState } from "react";
+import { useHistory } from "react-router";
+import useAddDocument from "../hooks/useAddDocument";
+
 function AddDoc() {
+  const add = useAddDocument();
+  const [url, setUrl] = useState("");
+  const [title, setTitle] = useState("");
+  const [text, setText] = useState("");
+  const history = useHistory();
+
+  function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    add.mutate({ url, title, text });
+
+    if (add.isSuccess) {
+      history.push("/");
+    } else {
+      console.log(add.error);
+    }
+  }
+
   return (
     <div className="grid justify-center">
       <form
@@ -17,31 +38,37 @@ function AddDoc() {
             name="url"
             id="url"
             placeholder="https://example.com"
+            value={url}
+            onChange={e => setUrl(e.target.value)}
           />
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="text-lg" htmlFor="url">
+          <label className="text-lg" htmlFor="title">
             Title
           </label>
           <input
             className="ring-none outline-none border-none rounded ring-2 ring-gray-200 focus:ring-2 focus:ring-blue-500"
             type="text"
-            name="url"
-            id="url"
-            placeholder="https://example.com"
+            name="title"
+            id="title"
+            placeholder="Title"
+            value={title}
+            onChange={e => setTitle(e.target.value)}
           />
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="text-lg" htmlFor="url">
+          <label className="text-lg" htmlFor="text">
             Text
           </label>
           <textarea
             className="ring-none outline-none border-none rounded ring-2 ring-gray-200 focus:ring-2 focus:ring-blue-500"
-            name="url"
-            id="url"
-            placeholder="https://example.com"
+            name="text"
+            id="text"
+            value={text}
+            placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+            onChange={e => setText(e.target.value)}
           ></textarea>
         </div>
 
