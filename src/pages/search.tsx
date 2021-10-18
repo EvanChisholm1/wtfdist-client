@@ -9,7 +9,7 @@ function SearchPage() {
 
   return (
     <div className="grid justify-center">
-      <div className="mt-10 flex flex-col gap-4">
+      <div className="mt-2 flex flex-col gap-4">
         <SearchBox onSearch={setQueryString} />
 
         {resultsQuery.isLoading ? (
