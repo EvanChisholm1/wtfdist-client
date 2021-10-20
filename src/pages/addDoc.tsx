@@ -1,5 +1,6 @@
 import { FormEvent, useState } from "react";
 import { useHistory } from "react-router";
+import TextInput from "../components/textInput";
 import useAddDocument from "../hooks/useAddDocument";
 
 function AddDoc() {
@@ -32,8 +33,7 @@ function AddDoc() {
           <label className="text-lg" htmlFor="url">
             Url
           </label>
-          <input
-            className="ring-none outline-none border-none rounded ring-2 ring-gray-200 focus:ring-2 focus:ring-blue-500"
+          <TextInput
             type="text"
             name="url"
             id="url"
@@ -47,8 +47,7 @@ function AddDoc() {
           <label className="text-lg" htmlFor="title">
             Title
           </label>
-          <input
-            className="ring-none outline-none border-none rounded ring-2 ring-gray-200 focus:ring-2 focus:ring-blue-500"
+          <TextInput
             type="text"
             name="title"
             id="title"

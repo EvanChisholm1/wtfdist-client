@@ -1,6 +1,7 @@
 import { FormEvent, useRef, useState } from "react";
 import { useHistory } from "react-router";
 import useAddWebPage from "../hooks/useAddWebPage";
+import TextInput from "../components/textInput";
 
 function AddWebPage() {
   const [url, setUrl] = useState("");
@@ -31,15 +32,13 @@ function AddWebPage() {
           <label className="text-lg" htmlFor="url">
             Url
           </label>
-          <input
-            ref={urlInput}
+          <TextInput
             value={url}
-            onChange={e => setUrl(e.target.value)}
-            className="ring-none outline-none border-none rounded ring-2 ring-gray-200 focus:ring-2 focus:ring-blue-500"
             type="url"
             name="url"
             id="url"
             placeholder="https://example.com"
+            onChange={e => setUrl(e.target.value)}
           />
         </div>
 

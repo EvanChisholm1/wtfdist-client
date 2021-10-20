@@ -22,18 +22,20 @@ function SearchPage() {
             <h1 className="text-5xl">uh oh an error occured</h1>
           </div>
         ) : (
-          <ul className="flex flex-col gap-3 place-items-center">
-            {resultsQuery.data.map((document: any) => (
-              <li key={document.id}>
-                <SearchItem
-                  id={document.id}
-                  link={document.link}
-                  title={document.title}
-                  content={document.content}
-                />
-              </li>
-            ))}
-          </ul>
+          <div className="flex flex-col place-items-center">
+            <ul className="flex flex-col p-2 gap-3 place-items-center xs:w-auto xs:max-w-[350px] w-[350px]  md:w-[500px] lg:w-[700px] xl:w-[900px]">
+              {resultsQuery.data.map((document: any) => (
+                <li key={document.id}>
+                  <SearchItem
+                    id={document.id}
+                    link={document.link}
+                    title={document.title}
+                    content={document.content}
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
       </div>
     </div>
