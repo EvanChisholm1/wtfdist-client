@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import { useHistory } from "react-router";
 import useAddWebPage from "../hooks/useAddWebPage";
 
@@ -22,7 +22,7 @@ function AddWebPage() {
   return (
     <div className="grid justify-center">
       <form
-        className="bg-white flex flex-col w-96 my-16 p-6 shadow rounded-md gap-3"
+        className="bg-white flex flex-col w-96 my-5 p-6 shadow rounded-md gap-3"
         onSubmit={handleSubmit}
       >
         <h2 className="text-xl font-semibold">Add A Web Page</h2>

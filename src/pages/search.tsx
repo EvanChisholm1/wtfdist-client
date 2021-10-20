@@ -2,6 +2,7 @@ import { useState } from "react";
 import LoadingSpinner from "../components/loadingSpinner";
 import SearchBox from "../components/searchBox";
 import useResults from "../hooks/useResults";
+import SearchItem from "../components/searchItem";
 
 function SearchPage() {
   const [queryString, setQueryString] = useState("");
@@ -21,16 +22,15 @@ function SearchPage() {
             <h1 className="text-5xl">uh oh an error occured</h1>
           </div>
         ) : (
-          <ul>
+          <ul className="flex flex-col gap-3 place-items-center">
             {resultsQuery.data.map((document: any) => (
               <li key={document.id}>
-                <a
-                  className="text-blue-500 underline text-sm"
-                  href={document.link}
-                >
-                  {document.link}
-                </a>
-                <h3 className="text-xl">{document.title}</h3>
+                <SearchItem
+                  id={document.id}
+                  link={document.link}
+                  title={document.title}
+                  content={document.content}
+                />
               </li>
             ))}
           </ul>
