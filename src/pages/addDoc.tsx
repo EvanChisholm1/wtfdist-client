@@ -25,7 +25,7 @@ function AddDoc() {
     <div className="grid justify-center">
       <form
         className="bg-white flex flex-col w-96 my-5 p-6 shadow rounded-md gap-3"
-        onSubmit={e => e.preventDefault()}
+        onSubmit={handleSubmit}
       >
         <h2 className="text-xl font-semibold">Add A Document</h2>
         <hr />

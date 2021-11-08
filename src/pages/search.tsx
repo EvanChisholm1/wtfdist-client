@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LoadingSpinner from "../components/loadingSpinner";
 import SearchBox from "../components/searchBox";
 import useResults from "../hooks/useResults";
@@ -6,7 +6,10 @@ import SearchItem from "../components/searchItem";
 
 function SearchPage() {
   const [queryString, setQueryString] = useState("");
-  const resultsQuery = useResults(queryString);
+  const resultsQuery = useResults(queryString.trim());
+  useEffect(() => {
+    console.log(`"${queryString.trim()}"`);
+  });
 
   return (
     <div className="grid justify-center">
@@ -27,6 +30,7 @@ function SearchPage() {
               {resultsQuery.data.map((document: any) => (
                 <li key={document.id}>
                   <SearchItem
+                    queryString={queryString}
                     id={document.id}
                     link={document.link}
                     title={document.title}
